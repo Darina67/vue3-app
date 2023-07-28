@@ -1,5 +1,20 @@
 <template>
   <div>
+    <h1>
+      {{
+        $store.state.isAuth
+          ? "Пользователь авторизован"
+          : "Авторизуйтесь, чтобы пользоваться сервисом"
+      }}
+    </h1>
+    <h1>{{ $store.getters.doubleLikes }}</h1>
+    <div>
+      <my-button @click="$store.commit('incrementLikes')">Лайк</my-button>
+    </div>
+    <div>
+      <my-button @click="$store.commit('decrementLikes')">Дизлайк</my-button>
+    </div>
+
     <h1>Страница с постами</h1>
     <my-input v-focus v-model="searchQuery" placeholder="Поиск..."> </my-input>
     <div class="app__btns">
@@ -18,16 +33,16 @@
     <div v-else>Идет загрузка...</div>
     <div class="observer" v-intersection="loadMorePosts"></div>
     <!-- <div class="page__wrapper">
-        <div
-          v-for="pageNumber in totalPages"
-          :key="pageNumber"
-          class="page"
-          :class="{ 'current-page': page === pageNumber }"
-          @click="changePage(pageNumber)"
-        >
-          {{ pageNumber }}
-        </div>
-      </div> -->
+          <div
+            v-for="pageNumber in totalPages"
+            :key="pageNumber"
+            class="page"
+            :class="{ 'current-page': page === pageNumber }"
+            @click="changePage(pageNumber)"
+          >
+            {{ pageNumber }}
+          </div>
+        </div> -->
   </div>
 </template>
 
