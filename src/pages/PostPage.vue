@@ -126,17 +126,17 @@ export default {
   },
   mounted() {
     this.fetchPosts();
-    var options = {
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-    var callback = (entries, observer) => {
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.loadMorePosts();
-      }
-    };
-    var observer = new IntersectionObserver(callback, options);
-    observer.observe(this.$refs.observer);
+    // var options = {
+    //   rootMargin: "0px",
+    //   threshold: 1.0,
+    // };
+    // var callback = (entries, observer) => {
+    //   if (entries[0].isIntersecting && this.page < this.totalPages) {
+    //     this.loadMorePosts();
+    //   }
+    // };
+    // var observer = new IntersectionObserver(callback, options);
+    // observer.observe(this.$refs.observer);
   },
   computed: {
     sortedPosts() {
